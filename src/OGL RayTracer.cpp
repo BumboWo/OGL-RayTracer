@@ -12,6 +12,7 @@ int main() {
     // Initialize GLFW
     if (!glfwInit()) {
         std::cerr << "Failed to initialize GLFW" << std::endl;
+        std::cout << "E";
         return -1;
     }
 
