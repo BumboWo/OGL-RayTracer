@@ -8,6 +8,10 @@
 #include "uiManager/uiManager.hpp"
 #include "renderer/renderer.hpp"
 
+#include "Object/Object.hpp"
+#include "Object/Components/Component.hpp"
+#include "Object/Components/Transform/Transform.hpp"
+
 int main() {
     // Initialize GLFW
     if (!glfwInit()) {
@@ -44,6 +48,22 @@ int main() {
 
     // Print OpenGL version
     std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
+
+    /*  Object Testing WOrked!
+    Object myObject;
+
+    myObject.addComponent(std::make_shared<Transform>( glm::vec3(0.0f, 0.0f, 0.0f) ));
+
+    auto other = myObject.getComponent<Transform>();
+    if (other) {
+        std::cout << other->getPosition().x;
+        other->setPosition(glm::vec3(1.0f, 0.0f, 0.0f);
+        std::cout << other->getPosition().x;
+    }
+    else {
+        std::cout << "EEE";
+    }
+    */
 
     Scene scene("MainScene");
 
