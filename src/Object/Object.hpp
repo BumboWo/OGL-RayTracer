@@ -29,6 +29,10 @@ std::shared_ptr<T> Object::getComponent() {
     return nullptr;
 }
 
+std::vector<std::shared_ptr<Component>> Object::getComponents() {
+    return components;
+}
+
 template<typename T>
 void Object::addComponent(std::shared_ptr<T> component) {
     components.push_back(component);
