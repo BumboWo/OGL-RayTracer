@@ -6,6 +6,8 @@
 // Object class which can hold multiple components
 class Object {
 public:
+    Object(const std::string& name);
+
     template <typename T>
     std::shared_ptr<T> getComponent();
 
@@ -13,11 +15,15 @@ public:
     template <typename T>
     void addComponent(std::shared_ptr<T> component);
 
-    void update();
-
+    std::string name;
 private:
     std::vector<std::shared_ptr<Component>> components;
 };
+
+//Constructor
+Object::Object(const std::string& name) : name(name) {
+    
+}
 
 // Template implementation
 template<typename T>
