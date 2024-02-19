@@ -8,9 +8,9 @@
 #include "uiManager/uiManager.hpp"
 #include "renderer/renderer.hpp"
 
-#include "Object/Object.hpp"
-#include "Object/Components/Component.hpp"
-#include "Object/Components/Transform/Transform.hpp"
+#include "SceneObject/SceneObject.hpp"
+#include "SceneObject/Components/Component.hpp"
+#include "SceneObject/Components/Transform/Transform.hpp"
 
 int main() {
     // Initialize GLFW
@@ -50,14 +50,16 @@ int main() {
     std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
 
     //Object Testing WOrked!
-    Object myObject("HElloo");
+    SceneObject myObject("HElloo");
 
     myObject.addComponent(std::make_shared<Transform>( glm::vec3(0.0f, 0.0f, 0.0f),  glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f) ));
 
     auto other = myObject.getComponent<Transform>();
+    auto allComponents = myObject.getComponents();
 
     if (other) {
-        std::cout << myObject.name;
+        std::cout << myObject.selfName << std::endl;
+        std::cout << allComponents.size() << std::endl;
         std::cout << other->getPosition().x << other->getPosition().y << other->getPosition().z << std::endl;
         std::cout << other->getRotation().x << other->getRotation().y << other->getRotation().z << std::endl;
         std::cout << other->getScale().x << other->getScale().y << other->getScale().z << std::endl;

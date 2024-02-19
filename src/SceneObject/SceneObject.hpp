@@ -4,9 +4,9 @@
 #include "Components/Component.hpp"
 
 // Object class which can hold multiple components
-class Object {
+class SceneObject {
 public:
-    Object(const std::string& name);
+    SceneObject(const std::string& objName);
 
     template <typename T>
     std::shared_ptr<T> getComponent();
@@ -15,19 +15,23 @@ public:
     template <typename T>
     void addComponent(std::shared_ptr<T> component);
 
-    std::string name;
+    std::vector<std::shared_ptr<Component>> getComponents() {
+        return components;
+    }
+
+    std::string selfName;
 private:
     std::vector<std::shared_ptr<Component>> components;
 };
 
 //Constructor
-Object::Object(const std::string& name) : name(name) {
-    
+SceneObject::SceneObject(const std::string& objName) : selfName(objName) {
+
 }
 
 // Template implementation
 template<typename T>
-std::shared_ptr<T> Object::getComponent() {
+std::shared_ptr<T> SceneObject::getComponent() {
     for (auto& component : components) {
         if (typeid(T) == component->getType()) {
             return std::dynamic_pointer_cast<T>(component);
@@ -37,6 +41,6 @@ std::shared_ptr<T> Object::getComponent() {
 }
 
 template<typename T>
-void Object::addComponent(std::shared_ptr<T> component) {
+void SceneObject::addComponent(std::shared_ptr<T> component) {
     components.push_back(component);
 }

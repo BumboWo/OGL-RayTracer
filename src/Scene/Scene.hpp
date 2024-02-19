@@ -1,10 +1,9 @@
-// scene.hpp
-
 #pragma once
-
 #include <vector>
 #include <iostream>
 #include "../Camera/Camera.hpp"
+
+#include "../SceneObject/SceneObject.hpp"
 
 class Scene {
 public:
@@ -12,7 +11,8 @@ public:
 
     Camera godCam = Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
-    // Constructor
-    Scene(const std::string& sceneName);
+    
 
+    // Constructor
+    Scene(const std::string& sceneName) : name(sceneName) {};
 };
