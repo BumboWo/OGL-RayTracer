@@ -3,7 +3,6 @@
 #include <iostream>
 #include "../Camera/Camera.hpp"
 
-#include "../SceneObject/SceneObject.hpp"
 
 class Scene {
 public:

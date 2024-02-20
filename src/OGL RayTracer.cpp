@@ -3,7 +3,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-
+//Scene doing some random add shit wont lemme add that shit
 #include "Scene/Scene.hpp"
 #include "uiManager/uiManager.hpp"
 #include "renderer/renderer.hpp"
